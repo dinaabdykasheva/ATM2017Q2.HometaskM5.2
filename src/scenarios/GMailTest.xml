@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNg" verbose="1" parallel="false">
+    <test name="GMailTest">
+        <parameter name="username" value="test.da.10062017"/>
+        <parameter name="password" value="testtest01"/>
+        <parameter name="recipient" value="dina_abdykasheva@mail.ru"/>
+        <parameter name="subject" value="mentoring task"/>
+        <parameter name="body" value="body text"/>
+        <classes>
+            <class name="test.GMailTestPO"/>
+        </classes>
+    </test>
+</suite>

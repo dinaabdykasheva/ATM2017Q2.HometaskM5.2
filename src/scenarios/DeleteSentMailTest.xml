@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNg" verbose="1" parallel="false">
+    <test name="DeleteSentMailTes">
+        <parameter name="username" value="test.da.10062017"/>
+        <parameter name="password" value="testtest01"/>
+        <classes>
+            <class name="test.DeleteSentMailTest"/>
+        </classes>
+    </test>
+</suite>
