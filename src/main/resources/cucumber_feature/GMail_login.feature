@@ -15,6 +15,12 @@ When user enters <username> and <password>
 Then  GMail account page is displayed
 When user fills in <recipient>, <subject>, <body> fields of mail and save mail to draft
 Then mail appears in drafts folder
+And user opens draft mail
+Then <recipient> field is valid
+And <subject> field is valid
+And <body> field is valid
+When user sends mail
+Then mail is sent
 
 Examples:
 |username        |password  |recipient               |subject       |body     |

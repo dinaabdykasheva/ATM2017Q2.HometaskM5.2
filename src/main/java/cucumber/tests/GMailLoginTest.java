@@ -16,18 +16,4 @@ import java.util.concurrent.TimeUnit;
         "html:target/cucumber-report" }, tags = "@smokeTest", features = "src/main/resources/cucumber_feature/GMail_login.feature", glue = {
         "cucumber.steps" })
 public class GMailLoginTest extends AbstractTestNGCucumberTests {
-        private static WebDriver driver = WebDriverSingleton.getWebDriverInstance();
-
-        @BeforeClass(description = "Start browser, add implicit wait and maximize window")
-        public void startBrowser() {
-                // set a certain implicit wait timeout
-                driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-                // Maximize browser window
-                driver.manage().window().maximize();
-        }
-
-        @AfterClass(description = "Stop Browser")
-        public void stopBrowser() {
-                driver.quit();
-        }
 }

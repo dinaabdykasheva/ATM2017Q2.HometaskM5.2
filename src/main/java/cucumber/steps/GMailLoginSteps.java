@@ -51,4 +51,37 @@ public class GMailLoginSteps {
         boolean isDraftMailSaved = writeMail.isDraftMailDisplayed(mail);
         Assert.assertTrue(isDraftMailSaved, "mentoring task");
     }
+
+    @And("^$user opens draft mail")
+    public void openDraftMail() {
+        openSavedDraft = new DraftsFolderPage().openDraftMail();
+    }
+
+    @Then("^(.*) field is valid$")
+    public void verifyRecipientFieldIsValid(String recipient) {
+        String receiver = openSavedDraft.getReceiver();
+        Assert.assertEquals(recipient, receiver, "Receiver isn't valid");
+    }
+
+    @And("^(.*) field is valid$")
+    public void verifySubjectFieldISValid(String subject) {
+        String mailSubject = new WriteMailPage().getSubject();
+        Assert.assertEquals(subject, mailSubject, "Subject isn't valid");
+    }
+
+    @And("^(.*) field is valid$")
+    public void verifyBodyFieldIsValid(String body) {
+        String mailBody = new WriteMailPage().getBody();
+        Assert.assertEquals(body, mailBody, "Body isn't valid");
+    }
+
+    @When("^user sends mail$")
+    public void sendMail() {
+        sendMail = new WriteMailPage().sendMail().openSentMail();
+    }
+
+    @Then("^mail is sent$")
+    public void verifyMailIsSent() {
+
+    }
 }
