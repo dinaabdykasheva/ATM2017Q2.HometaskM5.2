@@ -8,8 +8,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
  * Created by User on 19.08.2017.
  */
 public class ChromeDriverCreator extends WebDriverCreator {
+
     @Override
-    public WebDriver FactoryMethod() {
+    public WebDriver createWebDriver() {
         System.setProperty(GlobalProperties.CHROME_DRIVER, GlobalProperties.PATH_TO_CHROME_DRIVER);
         WebDriver driver = new ChromeDriver();
         return driver;

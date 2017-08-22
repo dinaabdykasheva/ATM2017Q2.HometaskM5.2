@@ -2,6 +2,7 @@ package app.pages;
 
 import app.business_objects.Mail;
 import core.driver.singleton.WebDriverSingleton;
+import core.service.GlobalProperties;
 import core.service.MailService;
 import org.openqa.selenium.By;
 
