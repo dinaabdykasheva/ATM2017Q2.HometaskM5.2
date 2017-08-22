@@ -19,16 +19,18 @@ public class WebDriverSingleton {
         if (instance != null) {
             return instance;
         }
-        return instance = init(GlobalProperties.CHROME_DRIVER_TYPE);
+        return instance = init();
     }
 
-    private static WebDriver init(String driverType) {
-        if (driverType.equals(GlobalProperties.CHROME_DRIVER_TYPE)) {
-            WebDriverCreator creator = new ChromeDriverCreator();
-        } else if (driverType.equals(GlobalProperties.FIREFOX_DRIVER_TYPE)) {
-            WebDriverCreator creator = new FirefoxDriverCreator();
+    private static WebDriver init() {
+        WebDriverCreator creator;
+        if (GlobalProperties.BROWSER.equals("chrome")) {
+            creator = new ChromeDriverCreator();
+        } else if (GlobalProperties.BROWSER.equals("firefox")) {
+            creator = new FirefoxDriverCreator();
+        } else {
+            creator = new ChromeDriverCreator();
         }
-        WebDriverCreator creator = new ChromeDriverCreator();
         WebDriver driver = creator.createWebDriver();
         driver = new WebDriverDecorator(driver);
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
