@@ -1,6 +1,5 @@
 package app.pages;
 
-import core.service.GlobalProperties;
 import org.openqa.selenium.By;
 import core.driver.singleton.WebDriverSingleton;
 
