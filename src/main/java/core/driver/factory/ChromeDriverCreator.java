@@ -1,5 +1,6 @@
 package core.driver.factory;
 
+import core.driver.decorator.WebDriverDecorator;
 import core.service.GlobalProperties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,6 +14,6 @@ public class ChromeDriverCreator extends WebDriverCreator {
     public WebDriver createWebDriver() {
         System.setProperty(GlobalProperties.CHROME_DRIVER, GlobalProperties.PATH_TO_CHROME_DRIVER);
         WebDriver driver = new ChromeDriver();
-        return driver;
+        return new WebDriverDecorator(driver);
     }
 }
